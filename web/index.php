@@ -33,12 +33,12 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => getenv('LineMessageAPI
 $replyMessage = null;
 if ($event->message->type == "text") {
     // textなら返信
-    $replyMessage = "こんぐら！";
+    $replyMessage = "Congratulations!　この勝利はあんたのものだ！";
+} else {
+    $replyMessage = "回復するまで、俺たちが支えるぜ！";
 }
 
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($replyMessage);
 // メッセージ送信
 $response = $bot->replyMessage($event->replyToken, $textMessageBuilder);
 return;
-
-$app->run();
